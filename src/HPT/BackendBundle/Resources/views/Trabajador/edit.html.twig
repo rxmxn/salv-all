@@ -1,0 +1,111 @@
+{% extends "BackendBundle::backend.html.twig" %}
+
+{% block menu_items %}
+    <li><a href="{{ path('backend_usuario_listar') }}">Usuarios</a></li>
+    <li><a href="{{ path('backend_admin_listar') }}">Admins</a></li>
+    <li><a href="{{ path('backend_sala') }}">Salas</a></li>
+    <li><a href="{{ path('backend_servicio') }}">Servicios</a></li>
+    <li><a href="{{ path('backend_noticias') }}">Noticias</a></li>
+    <li class="active"><a href="{{ path('backend_trabajador') }}">Trabajadores</a></li>
+{% endblock %}
+
+{% block contenido%}
+
+
+    <div class="container" style="margin-bottom: 20px;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-horizontal">
+                    <fieldset>
+                        <legend  style="width: 20em;">Editar Trabajador </legend>
+
+                        {{ form_start(edit_form) }}
+
+
+                        <div class="control-group" style="width: 15em;">
+        <span>
+        <div class="form-error">{{ form_errors(edit_form) }}</div>
+        <div class="form-error">{{ form_errors(edit_form.nombre) }}</div>
+        <label class="control-label">{{ form_label(edit_form.nombre) }}</label>
+        <div class="controls">{{ form_widget(edit_form.nombre, { 'attr': {
+            'accesskey' : 'n',
+            'tabindex' : 1,
+            'placeholder' : "Nombre del Trabajador . . ."
+            }}) }}</div>
+        </span>
+                        </div>
+
+                        <div class="control-group" style="width: 15em;">
+        <span>
+        <div class="form-error">{{ form_errors(edit_form.codigo) }}</div>
+        <label class="control-label">{{ form_label(edit_form.codigo) }}</label>
+        <div class="controls">{{ form_widget(edit_form.codigo, { 'attr': {
+            'accesskey' : 'n',
+            'tabindex' : 1,
+
+            'placeholder' : "Codigo del Trabajdor . . ."}}) }}</div>
+            </span>
+                        </div>
+
+                        <div class="control-group" style="width: 15em;">
+        <span>
+        <div class="form-error">{{ form_errors(edit_form.categoria) }}</div>
+        <label class="control-label">{{ form_label(edit_form.categoria) }}</label>
+        <div class="controls">{{ form_widget(edit_form.categoria, { 'attr': {
+            'accesskey' : 'n',
+            'tabindex' : 1,
+
+            'placeholder' : "Categoria . . ."}}) }}</div>
+            </span>
+                        </div>
+
+                        <div class="control-group" style="width: 15em;">
+        <span>
+        <div class="form-error">{{ form_errors(edit_form.tipoDeCategoria) }}</div>
+        <label class="control-label">{{ form_label(edit_form.tipoDeCategoria) }}</label>
+        <div class="controls">{{ form_widget(edit_form.tipoDeCategoria, { 'attr': {
+            'accesskey' : 'n',
+            'tabindex' : 1,
+
+            'placeholder' : "Tipo de Categoria . . ."}}) }}</div>
+            </span>
+                        </div>
+
+                        <div class="control-group" style="width: 15em;">
+        <span>
+        <div class="form-error">{{ form_errors(edit_form.sala) }}</div>
+        <label class="control-label">{{ form_label(edit_form.sala) }}</label>
+        <div class="controls">{{ form_widget(edit_form.sala, { 'attr': {
+            'accesskey' : 'n',
+            'tabindex' : 1,
+            }}) }}
+        </div>
+            </span>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="controls">
+
+                                {#<div class="btn btn-primary"  >{{ form_widget(form.submit) }}</div>#}
+                                <button class="btn btn-primary" type="submit" >Actualizar</button>
+                                <a href="{{ path('backend_trabajador') }}" class="btn btn-default">Trabajadores</a>
+
+                            </div>
+                        </div>
+
+
+                        {{ form_end(edit_form) }}
+
+
+                    </fieldset>
+                </div>
+
+
+                {{ form(delete_form) }}
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

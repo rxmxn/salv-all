@@ -1,0 +1,238 @@
+{% extends "HPTDefaultBundle::layout.html.twig" %}
+
+{% block title 'Salvador Allende' %}
+
+{% block menu_items %}
+    <li class="active"><a href="{{ path('hpt_default_homepage') }}">Inicio</a></li>
+    <li><a href="{{ path('hpt_quienes_somos') }}">Qui&eacute;nes Somos</a></li>
+    <li><a href="{{ path('hpt_servicios') }}">Servicios</a></li>
+    <li><a href="{{ path('hpt_noticias') }}">Noticias</a></li>
+    <li><a href="{{ path('hpt_contactanos') }}">Cont&aacute;ctanos</a></li>
+{% endblock %}
+
+    {% block menu_usuario %}
+        <li>{% render controller('UsuarioBundle:Default:cajaLogin')%}</li>
+    {% endblock %}
+
+{% block contenido %}
+
+    <!-- banner -->
+    <div class="benner">
+        <!-- slider -->
+        <!--- img-slider --->
+        <div class="img-slider">
+            <!----start-slider-script---->
+            <script src="{{ asset('bundles/hptdefault/js/responsiveslides.min.js') }}"></script>
+            <script>
+                // You can also use "$(window).load(function() {"
+                $(function () {
+                    // Slideshow 4
+                    $("#slider4").responsiveSlides({
+                        auto: true,
+                        pager: true,
+                        nav: true,
+                        speed: 500,
+                        namespace: "callbacks",
+                        before: function () {
+                            $('.events').append("<li>before event fired.</li>");
+                        },
+                        after: function () {
+                            $('.events').append("<li>after event fired.</li>");
+                        }
+                    });
+                });
+            </script>
+            <!----//End-slider-script---->
+            <!-- Slideshow 4 -->
+            <div  id="top" class="callbacks_container">
+                <ul class="rslides" id="slider4">
+                    <li>
+                        <img class="img-responsive" src="{{ asset('bundles/hptdefault/images/DSC00493.JPG') }}" alt="">
+                        <div class="slider-caption">
+                            <a href="{{ path('hpt_quienes_somos') }}"><h2 style="color: rgb(42, 129, 254);">¿A QUE ASPIRAMOS?</h2></a>
+                            <p style="text-align: justify">Trabajar por la satisfacción plena de nuestros pacientes y población y por consolidar una adecuada práctica médica que garantice la calidad de nuestros Hospitales.</p>
+                            <a class="caption-btn" href="{{ path('hpt_quienes_somos') }}">Leer m&aacute;s</a>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="{{ asset('bundles/hptdefault/images/eche.jpg') }}" alt="">
+                        <div class="slider-caption">
+                            <a href="{{ path('hpt_servicios') }}"><h2 style="color: rgb(42, 129, 254);">DOCENCIA</h2></a>
+                            <p style="text-align: justify">Brindamos Docencia Médica Superior y de Licenciatura en Enfermería, así como Docencia Médica Media y pertenecemos a la Facultad del mismo nombre Dr. Salvador Allende.</p>
+                            <a class="caption-btn" href="{{ path('hpt_servicios') }}">Leer m&aacute;s</a>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="{{ asset('bundles/hptdefault/images/cirugia.png') }}" alt="">
+                        <div class="slider-caption">
+                            <a href="{{ path('hpt_quienes_somos') }}"><h2 style="color: rgb(42, 129, 254);">&Aacute;REA DE ATRACCI&Oacute;N</h2></a>
+                            <p style="text-align: justify">Atendemos una población aproximada de 500 000 habitantes, distribuidos en 12 áreas de Atención Primaria de Salud en Ciudad de La Habana y en 9 Municipios de provincia Habana.</p>
+                            <a class="caption-btn" href="{{ path('hpt_quienes_somos') }}">Leer m&aacute;s</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <!-- slider -->
+    </div>
+    <!-- /banner -->
+    <!-- top-grids -->
+    <div class="top-grids text-center">
+        <div class="container">
+            <div class="col-md-3">
+                <div class="top-grid" style="height: 300px;">
+                    <a href="{{ path('servicio_categoria', {'categoria' : 'SERVICIOS DE MEDICINA LEGAL'}) }}">
+                        <span class="t-icon1" onmouseover="this.style.opacity=0.5"
+                          onmouseout="this.style.opacity=1"> </span>
+                        <h3>MEDICINA LEGAL</h3>
+                    </a>
+                    <p>Arreglos faciales por encargo!</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="top-grid" style="height: 300px;">
+                    <a href="{{ path('servicio_categoria', {'categoria' : 'SERVICIO DE ADMISION'}) }}">
+                        <span class="t-icon2" onmouseover="this.style.opacity=0.5"
+                              onmouseout="this.style.opacity=1"> </span>
+                        <h3>TERAPIA OCUPACIONAL</h3>
+                    </a>
+                    <p>Realizaci&oacute;n de trabajos manuales, entre otras cosas.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="top-grid" style="height: 300px;">
+                    <a href="{{ path('servicio_categoria', {'categoria' : 'TERAPIA OCUPACIONAL'}) }}">
+                        <span class="t-icon3" onmouseover="this.style.opacity=0.5"
+                              onmouseout="this.style.opacity=1"> </span>
+                        <h3>Resumenes médicos</h3>
+                    </a>
+                    <p>Se realizan resumenes m&eacute;dicos a petici&oacute;n del paciente.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="top-grid" style="height: 300px;">
+                    <a href="{{ path('servicio_categoria', {'categoria' : 'SERVICIO DE AMBULANCIA Y AUTOS'}) }}">
+                        <span class="t-icon4" onmouseover="this.style.opacity=0.5"
+                              onmouseout="this.style.opacity=1"> </span>
+                        <h3>AMBULANCIA Y AUTOS</h3>
+                    </a>
+                    <p>Servicio de transportaci&oacute;n por ambulancia y autos desde diferentes sitios.</p>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+
+    </div>
+
+    <!--FIN Imagen con la explicacion visible en mouseover-->
+
+    <!-- /top-grids -->
+    <!-- mid-grids -->
+    <div class="mid-grids">
+        <div class="col-md-6 mid-grid-left"
+             style="background: url('{{ asset('bundles/hptdefault/images/DSC00029.JPG') }}')
+                     no-repeat scroll 0 0 / cover rgba(0, 0, 0, 0);">
+        </div>
+
+        <div class="col-md-6 mid-grid-right">
+            <a href="{{ path('hpt_quienes_somos') }}"><h2>Qui&eacute;nes somos</h2></a>
+            <p style="text-align: justify">
+                Hospital Provincial Cl&iacute;nico Quir&uacute;rgico, categor&iacute;a II, de estructura horizontal,
+                pabellonal, con 136 000 m&sup2; de 	extensión. Cuenta con 40 edificaciones, de ellas 24 salas de
+                hospitalización, que atiende a la población del pa&iacute;s.
+            </p>
+            <p style="text-align: justify">Contamos con:</p>
+            <ul>
+                <li><p style="text-align: justify">30 Especialidades médicas.</p></li>
+                <li><p style="text-align: justify">Equipamiento médico para dar soporte a todas las especialidades.</p></li>
+                <li><p style="text-align: justify">Medios diagnósticos de alta tecnología: TAC monocorte, TAC multicorte (Angio TAC).</p></li>
+            </ul>
+            <p style="text-align: justify">Direcci&oacute;n: 12 e/ 12 y 22 #1299 Municipio, Habana.</p>
+            <p style="text-align: justify">Tel&eacute;fonos: 881-23909-321, 213-23213-123</p>
+            {#<p>ac urna posuere gravida a semper felis. Morbi congue elit eu scelerisque sagittis. Vestibulum blandit quam vitae pretium mollis. Nunc bibendum est a nibh finibus pellentesque.</p>#}
+            <a class="about-btn" href="{{ path('hpt_quienes_somos') }}">Leer m&aacute;s</a>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <!-- /mid-grids -->
+    <!-- bottom-grids -->
+
+    <div class="bottom-grids">
+        <a href="{{ path('hpt_noticias') }}"><h2>&Uacute;ltimas Noticias</h2></a>
+
+    {#{% for entity in entities %}#}
+
+        {#<div class="bottom-grid bottom-grid1">#}
+            {#<div class="container">#}
+                {#<div class="col-md-3 bottom-grid-left">#}
+                    {#<img alt="..." class="img-responsive" src="{{ asset('uploads/images/' ~ entity.rutaFoto) }}" title="post-name"#}
+                         {#onmouseover="this.style.opacity=0.5"#}
+                         {#onmouseout="this.style.opacity=1" style="height: 10em;width: 10em">#}
+                {#</div>#}
+                {#<div class="col-md-9 bottom-grid-right">#}
+                    {#<p style="text-align: justify"  >{{ entity.resumen }}.</p>#}
+                    {#<a class="news-btn" href="{{ path('noticias_show',{ 'id': entity.id }) }}">Leer m&aacute;s</a>#}
+                {#</div>#}
+                {#<div class="clearfix"> </div>#}
+            {#</div>#}
+        {#</div>#}
+        {#<div class="bottom-grid bottom-grid2">#}
+            {#<div class="container">#}
+
+                {#<div class="clearfix"> </div>#}
+            {#</div>#}
+        {#</div>#}
+
+    {#{% endfor %}#}
+        <div class="bottom-grid bottom-grid1">
+            <div class="container">
+                <div class="col-md-3 bottom-grid-left">
+                    <a href="{{ path('noticias_show',{ 'id': entities[0].id }) }}">
+                        <img src="{{ asset('uploads/images/' ~ entities[0].rutaFoto) }}" title="name"
+                                     onmouseover="this.style.opacity=0.5"
+                                     onmouseout="this.style.opacity=1" style="height: 130px; width: 100%;"/></a>
+                </div>
+                <div class="col-md-9 bottom-grid-right">
+                    <p style="text-align: justify">{{ entities[0].texto }}</p>
+                    <a class="news-btn" href="{{ path('noticias_show',{ 'id': entities[0].id }) }}">Leer m&aacute;s</a>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div class="bottom-grid bottom-grid2">
+            <div class="container">
+                <div class="col-md-3 bottom-grid-left">
+                    <a href="{{ path('noticias_show',{ 'id': entities[1].id }) }}">
+                        <img src="{{ asset('uploads/images/' ~ entities[1].rutaFoto) }}" title="name"
+                                     onmouseover="this.style.opacity=0.5"
+                                     onmouseout="this.style.opacity=1" style="height: 130px; width: 100%;"/></a>
+                </div>
+                <div class="col-md-9 bottom-grid-right">
+                    <p style="text-align: justify">{{ entities[1].texto }}</p>
+                    <a class="news-btn" href="{{ path('noticias_show',{ 'id': entities[1].id }) }}">Leer m&aacute;s</a>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div class="bottom-grid bottom-grid3">
+            <div class="container">
+                <div class="col-md-3 bottom-grid-left">
+                    <a href="{{ path('noticias_show',{ 'id': entities[2].id }) }}">
+                        <img src="{{ asset('uploads/images/' ~ entities[2].rutaFoto) }}" title="name"
+                                     onmouseover="this.style.opacity=0.5"
+                                     onmouseout="this.style.opacity=1" style="height: 130px; width: 100%;"/></a>
+                </div>
+                <div class="col-md-9 bottom-grid-right">
+                    <p style="text-align: justify">{{ entities[2].texto }}</p>
+                    <a class="news-btn" href="{{ path('noticias_show',{ 'id': entities[2].id }) }}">Leer m&aacute;s</a>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+        {#<a class="load-news" href="#">LoadMore</a>#}
+    </div>
+
+    <!-- /bottom-grids -->
+{% endblock %}

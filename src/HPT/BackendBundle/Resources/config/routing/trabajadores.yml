@@ -1,0 +1,31 @@
+backend_trabajador:
+    pattern:  /index
+    defaults: { _controller: BackendBundle:Trabajador:index }
+
+backend_trabajador_nombrePost:
+     pattern: /nombre/
+     defaults: {_controller: BackendBundle:Trabajador:nombrePost}
+
+backend_trabajador_create:
+    pattern:  /create
+    defaults: { _controller: BackendBundle:Trabajador:create }
+
+backend_trabajador_new:
+    pattern:  /new
+    defaults: { _controller: BackendBundle:Trabajador:new }
+
+backend_trabajador_edit:
+    pattern:  /edit/{id}
+    defaults: { _controller: BackendBundle:Trabajador:edit }
+
+backend_trabajador_update:
+    pattern:  /update/{id}
+    defaults: { _controller: BackendBundle:Trabajador:update }
+
+backend_trabajador_delete:
+    pattern:  /delete/{id}
+    defaults: { _controller: BackendBundle:Trabajador:delete}
+
+backend_trabajador_filtronombre:
+    pattern:  /filtro/{nombre}
+    defaults: { _controller: BackendBundle:Trabajador:filtronombre }

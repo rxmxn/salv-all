@@ -1,0 +1,27 @@
+reservacion:
+    pattern:  /index/
+    defaults: { _controller: HPTDefaultBundle:Reservacion:index }
+
+reservacion_create:
+    pattern:  /create/
+    defaults: { _controller: HPTDefaultBundle:Reservacion:create }
+
+reservacion_new:
+    pattern:  /new/
+    defaults: { _controller: HPTDefaultBundle:Reservacion:new }
+
+reservacion_show:
+    pattern:  /show/{id}/
+    defaults: { _controller: HPTDefaultBundle:Reservacion:show }
+
+reservacion_edit:
+    pattern:  /edit/{id}/
+    defaults: { _controller: HPTDefaultBundle:Reservacion:edit }
+
+reservacion_update:
+    pattern:  /update/{id}/
+    defaults: { _controller: HPTDefaultBundle:Reservacion:update }
+
+reservacion_delete:
+    pattern:  /delete/{id}/
+    defaults: { _controller: HPTDefaultBundle:Reservacion:delete }

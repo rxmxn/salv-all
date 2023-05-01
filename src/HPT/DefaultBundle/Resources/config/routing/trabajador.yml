@@ -1,0 +1,35 @@
+trabajador:
+    pattern:  /index
+    defaults: { _controller: HPTDefaultBundle:Trabajador:index }
+
+trabajador_nombrePost:
+     pattern: /nombre/
+     defaults: {_controller: HPTDefaultBundle:Trabajador:nombrePost}
+
+trabajador_create:
+    pattern:  /create
+    defaults: { _controller: HPTDefaultBundle:Trabajador:create }
+
+trabajador_new:
+    pattern:  /new
+    defaults: { _controller: HPTDefaultBundle:Trabajador:new }
+
+trabajador_show:
+    pattern:  /show/{id}
+    defaults: { _controller: HPTDefaultBundle:Trabajador:show }
+
+trabajador_edit:
+    pattern:  /edit/{id}
+    defaults: { _controller: HPTDefaultBundle:Trabajador:edit }
+
+trabajador_update:
+    pattern:  /update/{id}
+    defaults: { _controller: HPTDefaultBundle:Trabajador:update }
+
+trabajador_delete:
+    pattern:  /delete/{id}
+    defaults: { _controller: HPTDefaultBundle:Trabajador:delete}
+
+trabajador_filtronombre:
+    pattern:  /filtro/{nombre}
+    defaults: { _controller: HPTDefaultBundle:Trabajador:filtronombre }

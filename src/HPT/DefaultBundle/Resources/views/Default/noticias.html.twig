@@ -1,0 +1,138 @@
+{% extends "HPTDefaultBundle::layout.html.twig" %}
+
+{% block title 'Noticias' %}
+
+    {% block menu_items %}
+        <li><a href="{{ path('hpt_default_homepage') }}">Inicio</a></li>
+        <li><a href="{{ path('hpt_quienes_somos') }}">Qui&eacute;nes Somos</a></li>
+        <li><a href="{{ path('hpt_servicios') }}">Servicios</a></li>
+        <li class="active"><a href="{{ path('hpt_noticias') }}">Noticias</a></li>
+        <li><a href="{{ path('hpt_contactanos') }}">Cont&aacute;ctanos</a></li>
+    {% endblock %}
+
+    {% block menu_usuario %}
+        <li>{% render controller('UsuarioBundle:Default:cajaLogin')%}</li>
+    {% endblock %}
+
+{% block contenido %}
+
+    <!-- Blog -->
+		<div class="blog">
+			<div class="container">
+		<div class="blog-content">
+            <div class="wrap">
+            <div class="blog-content-left">
+                <div class="blog-articals">
+
+
+    {% for entity in entities %}
+                <div class="blog-artical">
+                    <div class="blog-artical-basicinfo">
+                        <ul>
+                            <li class="post-date img-responsive"><p><span> {{ entity.fechaArticulo|date('d') }}</span><label>{{ entity.fechaArticulo|date('Y-m') }}</label></p></li>
+                            <li class="post-date img-responsive"><p><span>{{ entity.categoria }}</span></p> </li>
+                            {#<li class="artlick"><span> </span> <i>90</i></li>#}
+
+                            <div class="clearfix"> </div>
+                        </ul>
+                    </div>
+                    <div class="blog-artical-info">
+                        <div class="blog-artical-info-img">
+
+                            {#<div class="image"#}
+                                 {#style="background: url('{{ asset('uploads/images/' ~ entity.rutaFoto) }}');#}
+                                         {#background-size:100% 100%;">#}
+                                {#<div class="overlay"></div>#}
+                            {#</div>#}
+                            <img alt="..." class="img-responsive"
+                                 src="{{ asset('uploads/images/' ~ entity.rutaFoto) }}"
+                                 title="{{ entity.titular }}"
+                                         onmouseout="this.style.opacity=0.5"
+                                         onmouseover="this.style.opacity=1"
+                                         style="height: 20em;width: 40em; border-radius:30px; opacity: 0.5;">
+
+                        </div>
+                        <div class="blog-artical-info-head">
+                            <h2>{{ entity.titular }}</h2>
+                            <ul>
+                                <li><span> </span>por {{ entity.nombreAutor }}</li>
+                                <div class="clearfix"> </div>
+                            </ul>
+                        </div>
+                        <div class="blog-artical-info-text">
+                            <p style="text-align:justify ">{{ entity.texto }}</p>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+        {% endfor %}
+
+            </div>
+            <!---start-blog-pagenate---->
+        {#<div class="blog-pagenat">#}
+            {#<ul>#}
+                {#<li><a class="frist" href="#"> <span> </span></a></li>#}
+                {#<li><a href="#">1</a></li>#}
+                {#<li><a href="#">2</a></li>#}
+                {#<li><a href="#">3</a></li>#}
+                {#<li><a href="#">4</a></li>#}
+                {#<li><a class="last" href="#"> <span> </span></a></li>#}
+                {#<div class="clearfix"> </div>#}
+            {#</ul>#}
+        {#</div>#}
+        <!---//End-blog-pagenate---->
+            </div>
+
+                {{ form_start(form) }}
+
+    <div class="blog-content-right">
+      <div class="b-search">
+        <div class="input-medium ">{{ form_widget(form.nombreAutor) }}</div>
+        <input type="submit"  value="" />
+      </div>
+               {{ form_end(form) }}
+
+            {#<div class="blog-content-right">#}
+                {#<div class="b-search">#}
+                    {#<form>#}
+                        {#<input type="text" value="Buscar" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Buscar';}">#}
+                        {#<input type="submit" value="">#}
+                    {#</form>#}
+                {#</div>#}
+                <!---start-twitter-weight---->
+                {#<div class="twitter-weights">#}
+                    {#<h3>Comentarios</h3>#}
+                    {#<div class="twitter-weight-grid">#}
+                        {#<h4><span> </span>Jhon Doe</h4>#}
+                        {#<p>Lorem ipsum dolor sit amet, consectetur elit,labore et dolore magna aliqua. <a href="#">http://t.co/h12k</a></p>#}
+                        {#<i><a href="#">Hace 2 d&iacute;as</a></i>#}
+                    {#</div>#}
+                    {#<div class="twitter-weight-grid">#}
+                        {#<h4><span> </span>Jhon Doe</h4>#}
+                        {#<p>Lorem ipsum dolor sit amet, consectetur elit,labore et dolore magna aliqua. <a href="#">http://t.co/h12k</a></p>#}
+                        {#<i><a href="#">Hace 2 d&iacute;as</a></i>#}
+                    {#</div>#}
+                    {#<a class="twittbtn" href="#">Ver todos los comentarios</a>#}
+                {#</div>#}
+                {#<!---//End-twitter-weight---->#}
+                {#<!---- start-tag-weight---->#}
+
+                <div class="b-tag-weight">
+                    <a href="{{ path('hpt_noticias') }}"> <h3>Categorias</h3></a>
+                    <ul>
+                        {% for entity in categoria %}
+                            <li><a href="{{ path('noticias_categoria', { 'categoria': entity.categoria }) }}">{{ entity.categoria }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {#<!---- //End-tag-weight---->#}
+            {#</div>#}
+            <div class="clearfix"> </div>
+        </div>
+
+        </div>
+		</div>
+		</div>
+		<!-- /Blog -->
+
+{% endblock %}

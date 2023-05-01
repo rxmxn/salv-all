@@ -1,0 +1,25 @@
+admin_login:
+    pattern: /login
+    defaults: { _controller: UsuarioBundle:Admin:login }
+
+admin_login_check:
+    pattern: /login_check
+
+admin_logout:
+    pattern: /logout
+
+admin_usuario_listar:
+    pattern: /usuario/listar
+    defaults: { _controller: UsuarioBundle:Admin:usuarioListar }
+
+usuario_borrar:
+    pattern: /usuario/borrar/{id}
+    defaults: { _controller: UsuarioBundle:Admin:usuarioBorrar }
+
+admin_editar:
+    pattern: /editar/{id}
+    defaults: { _controller: UsuarioBundle:Admin:adminEditar }
+
+admin_perfil:
+    pattern: /perfil/{id}
+    defaults: { _controller: UsuarioBundle:Admin:adminPerfil }

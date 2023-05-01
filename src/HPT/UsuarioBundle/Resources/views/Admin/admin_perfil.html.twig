@@ -1,0 +1,44 @@
+{% extends "HPTDefaultBundle::layout.html.twig" %}
+
+{% block title 'Salvador Allende' %}
+
+    {% block menu_items %}
+        <li><a href="{{ path('admin_usuario_listar') }}">Usuarios</a></li>
+        <li><a href="{{ path('sala') }}">Salas</a></li>
+        <li><a href="{{ path('servicio') }}">Servicios</a></li>
+        <li><a href="{{ path('noticias') }}">Noticias</a></li>
+        <li><a href="{{ path('trabajador') }}">Trabajadores</a></li>
+    {% endblock %}
+
+    {% block menu_usuario %}
+        <li class="active">{% render controller('UsuarioBundle:Default:cajaLogin')%}</li>
+    {% endblock %}
+
+    {% block contenido %}
+
+        <div class="form-group" style="margin-bottom: 20px; margin-top: 20px;">
+
+            <table class="table">
+                <tr >
+                    <th>Admin</th>
+                    <td>{{ admin }}</td>
+                </tr>
+
+                <tr >
+                    <th>CI</th>
+                    <td>{{ admin.ci }}</td>
+                </tr>
+
+                <tr >
+                    <th>email</th>
+                    <td>{{ admin.email }}</td>
+                </tr>
+            </table>
+
+        </div>
+
+    {% endblock %}
+
+
+    {% block contactanos_footer %}
+    {% endblock %}

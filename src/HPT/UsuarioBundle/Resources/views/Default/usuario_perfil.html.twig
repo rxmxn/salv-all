@@ -1,0 +1,91 @@
+{% extends "HPTDefaultBundle::layout.html.twig" %}
+
+{% block title 'Salvador Allende' %}
+
+    {% block menu_items %}
+        <li><a href="{{ path('hpt_default_homepage') }}">Inicio</a></li>
+        <li><a href="{{ path('hpt_quienes_somos') }}">Qui&eacute;nes Somos</a></li>
+        <li><a href="{{ path('hpt_servicios') }}">Servicios</a></li>
+        <li><a href="{{ path('hpt_noticias') }}">Noticias</a></li>
+        <li><a href="{{ path('hpt_contactanos') }}">Cont&aacute;ctanos</a></li>
+    {% endblock %}
+
+    {% block menu_usuario %}
+        <li class="active">{% render controller('UsuarioBundle:Default:cajaLogin')%}</li>
+    {% endblock %}
+
+    {% block contenido %}
+
+        {#<div style="display: table; width: 100%; height: 100px; text-align: center;">#}
+            {#<span style="display: table-cell; vertical-align: middle;">#}
+                {#<H1>{{ usuario }}</H1>#}
+            {#</span>#}
+        {#</div>#}
+
+        <div class="form-group" style="margin-bottom: 20px; margin-top: 20px;">
+
+            <table class="table">
+                <tr>
+                    <th>Usuario</th>
+                    <td>{{ usuario }}</td>
+                </tr>
+
+                <tr >
+                    <th>CI</th>
+                    <td>{{ usuario.ci }}</td>
+                </tr>
+
+                <tr>
+                    <th>Pa&iacute;s</th>
+                    <td>{{ usuario.pais }}</td>
+                </tr>
+
+                <tr>
+                    <th>email</th>
+                    <td>{{ usuario.email }}</td>
+                </tr>
+                <tr>
+                    <th>Direccion</th>
+                    <td>{{ usuario.direccion }}</td>
+                </tr>
+
+                {% if usuario.reservacion is not none %}
+                    <tr>
+                        <th>Reservas</th>
+                        <td>
+                            {% for reserva in usuario.reservacion %}
+                                {% for servicio in reserva.servicio %}
+                                <table style="border: dotted; border-width: thin; border-color: #c0bfbe;">
+                                    <tr>
+                                        <td>{{ servicio.nombreServ }}</td>
+                                        <td>
+                                            <span style="font-style: italic; font-size: 10pt;">
+                                                ({{ servicio.precio }} {{ servicio.unidad }})
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>{{ reserva.fecha | date }}</td>
+                                    </tr>
+                                    <tr>
+                                        {#<td><a href="#">Cambiar fecha</a></td>#}
+                                        <td>
+                                            <form action="{{ path('usuario_cancel_reservacion',
+                                            { 'id': app.user.id, 'reservacion_id': reserva.id}) }}" method="post">
+                                                <input class="btn btn-danger" type="submit" value="Cancelar reseva"/>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </table>
+                                {% endfor %}
+                            {% endfor %}
+
+                        </td>
+                    </tr>
+                {% endif %}
+
+            </table>
+
+        </div>
+
+    {% endblock %}

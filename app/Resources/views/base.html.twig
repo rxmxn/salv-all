@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Salvador Allende{% endblock %}</title>
+
+        {% block head %}{% endblock %}
+
+        {% block stylesheets %}{% endblock %}
+        {#<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />#}
+    </head>
+    <body data-spy="scroll" data-target=".bs-docs-sidebar">
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+    <footer>
+        {% block footer %}{% endblock %}
+    </footer>
+</html>

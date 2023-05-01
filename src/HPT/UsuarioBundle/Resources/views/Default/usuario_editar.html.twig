@@ -1,0 +1,9 @@
+{% extends 'UsuarioBundle:Default:usuario_registro.html.twig' %}
+
+{% block action %}
+    "{{ path('usuario_editar', { 'id': usuario.id }) }}"
+{% endblock %}
+
+{% block value_boton %}
+    "Guardar cambios"
+{% endblock %}

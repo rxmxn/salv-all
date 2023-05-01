@@ -1,0 +1,15 @@
+backend_usuario_registro:
+    pattern: /registro
+    defaults: { _controller: BackendBundle:Usuario:usuarioRegistro }
+
+backend_usuario_editar:
+    pattern: /editar/{id}
+    defaults: { _controller: BackendBundle:Usuario:usuarioEditar }
+
+backend_usuario_borrar:
+    pattern: /usuario/borrar/{id}
+    defaults: { _controller: BackendBundle:Usuario:usuarioBorrar }
+
+backend_usuario_listar:
+    pattern: /usuario/listar
+    defaults: { _controller: BackendBundle:Usuario:usuarioListar }

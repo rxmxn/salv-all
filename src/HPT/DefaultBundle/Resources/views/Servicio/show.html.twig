@@ -1,0 +1,89 @@
+{% extends 'HPTDefaultBundle::layout.html.twig' %}
+
+{% block menu_items %}
+    <li><a href="{{ path('hpt_default_homepage') }}">Inicio</a></li>
+    <li><a href="{{ path('hpt_quienes_somos') }}">Qui&eacute;nes Somos</a></li>
+    <li class="active"><a href="{{ path('hpt_servicios') }}">Servicios</a></li>
+    <li><a href="{{ path('hpt_noticias') }}">Noticias</a></li>
+    <li><a href="{{ path('hpt_contactanos') }}">Cont&aacute;ctanos</a></li>
+{% endblock %}
+
+    {% block menu_usuario %}
+        <li>{% render controller('UsuarioBundle:Default:cajaLogin')%}</li>
+    {% endblock %}
+
+{% block contenido %}
+
+<div class="about">
+    <div class="container">
+        <div class="about-grids">
+
+            <div class="col-md-9 about-left">
+                    <H1>{{ entity.nombreServ }}</H1>
+                    <span style="font-style: italic; font-size: 10pt;">(c&oacute;digo: {{ entity.codigo }})</span>
+                    <p style="text-align: justify; font-size: 14pt;">{{ entity.descripcion }}</p>
+                    <p>Precio: {{ entity.precio }} {{ entity.unidad }}</p>
+                    <p>Personal asociado a este servicio:</p>
+                    <ul>
+                        {% for trabajador in entity.trabajador %}
+                            <li>{{ trabajador }}</li>
+                        {% endfor %}
+                    </ul>
+                    <div class="blog-artical-info-head" style="width: 50%;">
+                        <h3>Categor&iacute;a:</h3>
+                        <ul>
+                            <li><span> </span>{{ entity.categoria }}</li>
+                        </ul>
+                    </div>
+
+                {% if is_granted('ROLE_USUARIO') %}
+                <form action="{{ path('usuario_add_reservacion',
+                { 'id': app.user.id, 'servicio_id': entity.id }) }}" method="post">
+                    {#Si desea reservar el servicio, seleccione una fecha:#}
+                    {#<input name="fecha" value="{{ 'now' | date }}" type="datetime" >#}
+                    {#<select>#}
+                        {#<option>2015</option>#}
+                        {#<option>2016</option>#}
+                        {#<option>2017</option>#}
+                    {#</select>#}
+                    <input type="submit" value="Reservar Servicio">
+                </form>
+                {% endif %}
+
+                <a href="{{ path('hpt_servicios') }}" class="btn btn-default" >Volver a lista de servicios</a>
+
+            </div>
+
+            <div class="col-md-3 about-left">
+                <a href="{{ path('hpt_noticias') }}"><h2>&Uacute;ltimas Noticias</h2></a>
+                <!-- recent-post-grids -->
+
+                {% for entity in entities %}
+                    <div class="recent-post-grids">
+                        <div class="r-post-grid">
+                            <div class="r-post-grid-left">
+
+                                <img alt="..." class="img-responsive" src="{{ asset('uploads/images/' ~ entity.rutaFoto) }}" title="post-name"
+                                     onmouseover="this.style.opacity=0.5"
+                                     onmouseout="this.style.opacity=1" style="height: 3em;width: 8em">
+
+                            </div>
+                            <div class="r-post-grid-right">
+                                <a  href="{{ path('noticias_show',{ 'id': entity.id }) }}"><h4>{{ entity.titular }}</h4></a>
+                                <p style="text-align: justify;">{{ entity.texto }}</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <!-- recent-post-grids -->
+
+                <!-- recent-news -->
+            </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock %}
+

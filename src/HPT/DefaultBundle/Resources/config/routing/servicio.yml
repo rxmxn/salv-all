@@ -1,0 +1,23 @@
+servicio:
+    pattern:  /index/
+    defaults: { _controller: HPTDefaultBundle:Servicio:index }
+
+servicio_create:
+    pattern:  /create/
+    defaults: { _controller: HPTDefaultBundle:Servicio:create }
+
+servicio_new:
+    pattern:  /new/
+    defaults: { _controller: HPTDefaultBundle:Servicio:new }
+
+servicio_edit:
+    pattern:  /edit/{id}/
+    defaults: { _controller: HPTDefaultBundle:Servicio:edit }
+
+servicio_update:
+    pattern:  /update/{id}/
+    defaults: { _controller: HPTDefaultBundle:Servicio:update }
+
+servicio_delete:
+    pattern:  /delete/{id}/
+    defaults: { _controller: HPTDefaultBundle:Servicio:delete }

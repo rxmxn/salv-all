@@ -1,0 +1,65 @@
+{% extends "HPTDefaultBundle::layout.html.twig" %}
+
+{% block title 'Servicios' %}
+
+    {% block menu_items %}
+        <li><a href="{{ path('hpt_default_homepage') }}">Inicio</a></li>
+        <li><a href="{{ path('hpt_quienes_somos') }}">Qui&eacute;nes Somos</a></li>
+        <li class="active"><a href="{{ path('hpt_servicios') }}">Servicios</a></li>
+        <li><a href="{{ path('hpt_noticias') }}">Noticias</a></li>
+        <li><a href="{{ path('hpt_contactanos') }}">Cont&aacute;ctanos</a></li>
+    {% endblock %}
+
+    {% block menu_usuario %}
+        <li>{% render controller('UsuarioBundle:Default:cajaLogin')%}</li>
+    {% endblock %}
+
+    {% block contenido %}
+        <!-- Services -->
+		<div class="services">
+            <div class="container">
+                <div class="services-grids">
+                    <div class="col-md-9 services-left">
+                        <h1>Nuestros Servicios</h1>
+                        <div class="services-left-grids">
+
+                            {% for entity in entities %}
+
+                                <div class="col-md-6 services-left-grid">
+                                    <h3 style="font-size: 14pt;">{{ entity.nombreServ }}</h3>
+                                    <p>{{ entity.descripcion }}</p>
+                                    <div class="blog-artical-info-head" style="width: 50%;">
+                                        <ul>
+                                            <li><span> </span>{{ entity.categoria }}</li>
+                                        </ul>
+                                    </div>
+                                    <a class="more-btn" href="{{ path('servicio_show', { 'id': entity.id }) }}">M&aacute;s</a>
+                                </div>
+
+                            {% endfor %}
+
+                            <div class="clearfix"> </div>
+
+                            {#<ul class="pagenation">#}
+                                {#<li><a href="#">1</a></li>#}
+                                {#<li><a href="#">2</a></li>#}
+                                {#<li><a href="#">3</a></li>#}
+                            {#</ul>#}
+                        </div>
+                    </div>
+                    <div class="col-md-3 services-right">
+                        <div class="b-tag-weight">
+                            <a href="{{ path('hpt_servicios') }}"><h3>Categor&iacute;as</h3></a>
+                            <ul>
+                            {% for cat in categorias %}
+                                <li><a href="{{ path('servicio_categoria', { 'categoria': cat.categoria }) }}">{{ cat.categoria }}</a></li>
+                            {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+		</div>
+		<!-- Services -->
+    {% endblock %}

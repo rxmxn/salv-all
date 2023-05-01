@@ -1,0 +1,74 @@
+
+#ESTO ES LO Q VIENE POR DEFECTO
+#hpt_default_homepage:
+#    pattern:  /hello/{name}
+#    defaults: { _controller: HPTDefaultBundle:Default:index }
+
+hpt_default_homepage:
+    pattern:  /
+    defaults: { _controller: HPTDefaultBundle:Default:inicio }
+
+hpt_quienes_somos:
+    pattern:  /quienes_somos/
+    defaults: { _controller: HPTDefaultBundle:Default:quienessomos }
+
+hpt_contactanos:
+    pattern:  /contactanos/
+    defaults: { _controller: HPTDefaultBundle:Default:contactanos }
+
+#hpt_correo:
+#    pattern:  /correo/
+#    defaults: { _controller: HPTDefaultBundle:Default:correo }
+
+hpt_servicios:
+    pattern:  /servicios/
+    defaults: { _controller: HPTDefaultBundle:Default:servicios }
+
+servicio_show:
+    pattern:  /servicios/show/{id}/
+    defaults: { _controller: HPTDefaultBundle:Servicio:show }
+
+servicio_categoria:
+    pattern:  /servicios/categoria/{categoria}/
+    defaults: { _controller: HPTDefaultBundle:Servicio:categoria }
+
+hpt_noticias:
+    pattern:  /noticias/ultimas/
+    defaults: { _controller: HPTDefaultBundle:Noticias:ultimas }
+
+# Importar las rutas de la entidad Trabajadores generadas en el bundle DefaultBundle
+trabajadores:
+    resource: "@HPTDefaultBundle/Resources/config/routing/trabajador.yml"
+    prefix:   /admin/trabajador
+
+# Importar las rutas de la entidad Sala generadas en el bundle DefaultBundle
+sala:
+    resource: "@HPTDefaultBundle/Resources/config/routing/sala.yml"
+    prefix:   /admin/sala
+
+# Importar las rutas de la entidad Servicio generadas en el bundle DefaultBundle
+servicio:
+    resource: "@HPTDefaultBundle/Resources/config/routing/servicio.yml"
+    prefix:   /admin/servicio
+
+# Importar las rutas de la entidad Noticias generadas en el bundle DefaultBundle
+noticias:
+    resource: "@HPTDefaultBundle/Resources/config/routing/noticias.yml"
+    prefix:   /admin/noticias
+
+# Importar las rutas de la entidad Noticias generadas en el bundle DefaultBundle
+reservaciones:
+    resource: "@HPTDefaultBundle/Resources/config/routing/reservacion.yml"
+    prefix:   /reservaciones
+
+noticias_categoria:
+   pattern:  /noticias/categoria/{categoria}/
+   defaults: { _controller: HPTDefaultBundle:Noticias:FindCategoria }
+
+noticias_nombrePost:
+   pattern:  /noticias/nombreAutor/
+   defaults: { _controller: HPTDefaultBundle:Noticias:nombrePost }
+
+noticias_show:
+   pattern:  /noticias/show/{id}/
+   defaults: { _controller: HPTDefaultBundle:Noticias:show }

@@ -1,0 +1,135 @@
+{% extends 'HPTDefaultBundle::layout.html.twig' %}
+
+{% block title 'Salvador Allende' %}
+
+{% block menu_items %}
+    <li><a href="{{ path('admin_usuario_listar') }}">Usuarios</a></li>
+    <li><a href="{{ path('sala') }}">Salas</a></li>
+    <li class="active"><a href="{{ path('servicio') }}">Servicios</a></li>
+    <li><a href="{{ path('noticias') }}">Noticias</a></li>
+    <li><a href="{{ path('trabajador') }}">Trabajadores</a></li>
+{% endblock %}
+
+{% block menu_usuario %}
+    <li>{% render controller('UsuarioBundle:Default:cajaLogin')%}</li>
+{% endblock %}
+
+{% block contenido%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-horizontal">
+                <fieldset>
+                    <legend  style="width: 20em;">Crear Servicio </legend>
+
+                    {{ form_start(form) }}
+
+                    <div class="control-group" style="width: 15em;">
+                        <span>
+                            <div class="form-error">{{ form_errors(form.codigo) }}</div>
+                            <label class="control-label">{{ form_label(form.codigo) }}</label>
+                            <div class="controls">{{ form_widget(form.codigo, { 'attr': {
+                                'accesskey' : 'n',
+                                'tabindex' : 1,
+                                'placeholder' : "Codigo del Servicio . . ."}}) }}</div>
+                            </span>
+                    </div>
+
+                    <div class="control-group" style="width: 15em;">
+                        <span>
+                            <div class="form-error">{{ form_errors(form) }}</div>
+                            <div class="form-error">{{ form_errors(form.categoria) }}</div>
+                            <label class="control-label">{{ form_label(form.categoria) }}</label>
+                            <div class="controls">{{ form_widget(form.categoria, { 'attr': {
+                                    'accesskey' : 'n',
+                                    'tabindex' : 1,
+                                    'placeholder' : "Categoria . . ."
+                                }}) }}</div>
+                        </span>
+                    </div>
+
+                    <div class="control-group" style="width: 15em;">
+                        <span>
+                            <div class="form-error">{{ form_errors(form) }}</div>
+                            <div class="form-error">{{ form_errors(form.nombreServ) }}</div>
+                            <label class="control-label">{{ form_label(form.nombreServ) }}</label>
+                            <div class="controls">{{ form_widget(form.nombreServ, { 'attr': {
+                                'accesskey' : 'n',
+                                'tabindex' : 1,
+                                'placeholder' : "Nombre del Servicio . . ."
+                                }}) }}</div>
+                        </span>
+                    </div>
+
+                    <div class="control-group" style="width: 15em;">
+                        <span>
+                            <div class="form-error">{{ form_errors(form) }}</div>
+                            <div class="form-error">{{ form_errors(form.descripcion) }}</div>
+                            <label class="control-label">{{ form_label(form.descripcion) }}</label>
+                            <div class="controls">{{ form_widget(form.descripcion, { 'attr': {
+                                    'accesskey' : 'n',
+                                    'tabindex' : 1,
+                                    'placeholder' : "Descripcion . . ."
+                                }}) }}</div>
+                        </span>
+                    </div>
+
+                    <div class="control-group" style="width: 15em;">
+                        <span>
+                            <div class="form-error">{{ form_errors(form) }}</div>
+                            <div class="form-error">{{ form_errors(form.unidad) }}</div>
+                            <label class="control-label">{{ form_label(form.unidad) }}</label>
+                            <div class="controls">{{ form_widget(form.unidad, { 'attr': {
+                                'accesskey' : 'n',
+                                'tabindex' : 1,
+                                'placeholder' : "Unidad . . ."
+                                }}) }}</div>
+                        </span>
+                    </div>
+
+                    <div class="control-group" style="width: 15em;">
+                        <span>
+                            <div class="form-error">{{ form_errors(form) }}</div>
+                            <div class="form-error">{{ form_errors(form.precio) }}</div>
+                            <label class="control-label">{{ form_label(form.precio) }}</label>
+                            <div class="controls">{{ form_widget(form.precio, { 'attr': {
+                                'accesskey' : 'n',
+                                'tabindex' : 1,
+                                'placeholder' : "Precio . . ."
+                                }}) }}</div>
+                        </span>
+                    </div>
+
+                    <div class="control-group" style="width: 15em;">
+                        <span>
+                            <div class="form-error">{{ form_errors(form) }}</div>
+                            <div class="form-error">{{ form_errors(form.trabajador) }}</div>
+                            <label class="control-label">{{ form_label(form.trabajador) }}</label>
+                            <div class="controls">{{ form_widget(form.trabajador ) }}</div>
+                        </span>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="controls">
+
+                            {#<div class="btn btn-primary"  >{{ form_widget(form.submit) }}</div>#}
+                            <button class="btn btn-primary" type="submit" >Guardar</button>
+                            <a href="{{ path('servicio') }}" class="btn btn-default">Servicios</a>
+                        </div>
+                    </div>
+
+                    {{ form_end(form) }}
+                </fieldset>
+            </div>
+
+            {#<a href="{{ path('sala') }}" class="btn btn-large btn-primary disabled">Salas</a>#}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block contactanos_footer %}
+{% endblock %}

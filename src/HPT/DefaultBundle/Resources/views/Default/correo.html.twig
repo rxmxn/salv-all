@@ -1,0 +1,8 @@
+Nombre: {{ nombre }}
+Email: {{ email }}
+Asunto: {{ asunto }}
+Mensaje: {{ mensaje }}
+
+{% for mensaje in app.session.flashbag.get('notaBuena') %}
+    <p class="alert-success">{{ mensaje }}</p>
+{% endfor %}

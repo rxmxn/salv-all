@@ -1,0 +1,203 @@
+{% extends "HPTDefaultBundle::layout.html.twig" %}
+
+{% block title 'Quienes Somos' %}
+
+{% block menu_items %}
+	<li><a href="{{ path('hpt_default_homepage') }}">Inicio</a></li>
+	<li class="active"><a href="{{ path('hpt_quienes_somos') }}">Qui&eacute;nes Somos</a></li>
+	<li><a href="{{ path('hpt_servicios') }}">Servicios</a></li>
+	<li><a href="{{ path('hpt_noticias') }}">Noticias</a></li>
+	<li><a href="{{ path('hpt_contactanos') }}">Cont&aacute;ctanos</a></li>
+{% endblock %}
+
+	{% block menu_usuario %}
+		<li>{% render controller('UsuarioBundle:Default:cajaLogin')%}</li>
+	{% endblock %}
+
+{% block contenido %}
+		<!-- about-us -->
+		<div class="about">
+			<div class="container">
+				<div class="about-grids">
+					<div class="col-md-9 about-left">
+						<div class="tabbable"> <!-- Only required for left/right tabs -->
+							<div style="float: none;">
+								<ul class="nav nav-tabs" id="myTab">
+									<li class="active" style="padding-right:2em;">
+										<a href="#ObjetoSocial">Objeto Social</a>
+									</li>
+									<li style="padding-right:2em;"><a href="#Mision">Misi&oacute;n</a></li>
+									<li style="padding-right:2em;"><a href="#Vision">Visi&oacute;n</a></li>
+									<li style="padding-right:2em;"><a href="#Objetivos">Objetivos de Trabajo</a></li>
+								</ul>
+							</div>
+							<div class="tab-content">
+								<div class="tab-pane active" id="ObjetoSocial">
+									<p style="text-align: justify">
+										Nuestro objeto social tiene como prioridades:
+									</p>
+									<ul>
+										<li><a href="#"><span> </span>
+												Brindar atención integral (promoción, prevención, diagnóstico,
+												tratamiento y rehabilitación) a ciudadanos de cualquier lugar del país
+												en las especialidades que están autorizadas.
+											</a></li>
+										<li><a href="#"><span> </span>
+												Brindar atención ambulatoria (Consulta externa y Urgencias).
+											</a></li>
+										<li><a href="#"><span> </span>
+												Efectuar el control higiénico – epidemiológico en el medio intrahospitalario.
+											</a></li>
+										<li><a href="#"><span> </span>
+												Brindar atención a eventos epidémicos.
+											</a></li>
+										<li><a href="#"><span> </span>
+												Realizar actividades docentes de pre y postgrado e investigación científica.
+											</a></li>
+										<li><a href="#"><span> </span>
+												Realizar eventos y actividades científicas con asistencia de cubanos y
+												extranjeros, de acuerdo con el plan de eventos autorizado.
+											</a></li>
+										<li><a href="#"><span> </span>
+												Realizar acuerdos con instituciones autorizadas en cuanto a
+												servicios médicos y técnicos especializados.
+											</a></li>
+										<li><a href="#"><span> </span>
+												Brindar servicios de comedor y cafetería a trabajadores.
+											</a></li>
+									</ul>
+								</div>
+
+								<div class="tab-pane" id="Mision">
+									<p style="text-align: justify">
+										Ofrecer servicios de excelencia en la atención médica altamente especializada en
+										<a href="{{ path('hpt_servicios') }}">servicios que se brindar&aacute;n</a>,
+										implementando la actividad de comercialización de los
+										servicios de salud a personal extranjero y cubano residente en el exterior.
+									</p>
+								</div>
+
+								<div class="tab-pane" id="Vision">
+									<p style="text-align: justify">
+										Ser un Servicio de Excelencia en la asistencia médica en las especialidades a pacientes extranjeros y cubanos
+										residentes en el exterior, caracterizado por la calidad, la ética, el humanismo
+										y la solidaridad de todos los miembros de la organización.
+									</p>
+								</div>
+
+								<div class="tab-pane" id="Objetivos">
+									<p style="text-align: justify">
+										<span style="font-weight: bold">Objetivo 1:</span> Mejorar continuamente la
+										calidad de los  servicios prestados en el centro para lograr la excelencia
+										de los mismos.
+									</p>
+									<ul>
+										<li><a href="#"><span> </span>
+												Evaluar el cumplimiento del  Reglamento Funcional Interno del  centro. L_12.
+											</a></li>
+										<li><a href="#"><span> </span>
+												Evaluar los resultados de la aplicación de los protocolos de
+												atención médica para las principales causas de ingreso en el centro. L-156.
+											</a></li>
+										<li><a href="#"><span> </span>
+												Implementar y cumplir las regulaciones para el uso de la Alta
+												Tecnología en el instituto y analizar  sus indicadores. L_156.
+											</a></li>
+										<li><a href="#"><span> </span>
+												El colectivo moral como instrumento para alcanzar la excelencia en los
+												servicios, utilizando los 5 pilares del trabajo político ideológico y
+												el plan de reforzamiento de valores de la sociedad cubana. L_154.
+											</a></li>
+										<li><a href="#"><span> </span>
+												Incrementar la satisfacción de los pacientes atendidos reflejado a
+												través de la reducción de las quejas y cumplimiento de la misión del servicio.L_154.
+											</a></li>
+										<li><a href="#"><span> </span>
+												Lograr el registro de enfermería con calidad en el 90% de las historias
+												clínicas auditadas. L_154.
+											</a></li>
+										<li><a href="#"><span> </span>
+												Lograr que el 100&percnt; de los cuadros cumplan los requisitos
+												establecidos para ocupar los cargos de dirección y sus evaluaciones
+												estén en correspondencia con los resultados alcanzados en cada nivel.
+												L_08 Y L_11.
+											</a></li>
+										<li><a href="#"><span> </span>
+												Garantizar el proceso de acreditación para la asistencia, y la
+												investigación en el servicio, para dar respuesta a las necesidades del
+												estado de salud de nuestros pacientes. L_154.
+											</a></li>
+									</ul>
+
+									<p style="text-align: justify">
+										<span style="font-weight: bold">Objetivo 2:</span> Incrementar la racionalidad
+										económica y evitar las indisciplinas e ilegalidades en el servicio.
+									</p>
+									<ul>
+										<li><a href="#"><span> </span>
+												Aplicar el Programa para el Fortalecimiento del Control Económico en el centro. L_42.
+											</a></li>
+										<li><a href="#"><span> </span>
+												Comenzar la implementación del sistema de costos y realizar
+												control sistemático de los mismos. L_173.
+											</a></li>
+										<li><a href="#"><span> </span>
+												Continuar fortaleciendo el Programa por la Eficiencia y el Empleo Racional de los Recursos. L_172.
+											</a></li>
+										<li><a href="#"><span> </span>
+												Cumplimentar el cronograma aprobado por el centro, para la
+												instrumentación  la Resolución No. 60 - 2011, de la Contraloría General
+												de la República en nuestro centro.  L_173.
+											</a></li>
+										<li><a href="#"><span> </span>
+												Cumplir el Plan de Ingresos financieros asignados en el año, por
+												concepto de comercialización de los servicios de salud a clientes
+												en Cuba y en el exterior. L_73, L_76, L_78, L_154.
+											</a></li>
+									</ul>
+								</div>
+
+							</div>
+						</div>
+
+						<script>
+							$('#myTab a').click(function (e) {
+								e.preventDefault();
+								$(this).tab('show');
+							})
+						</script>
+
+					</div>
+					<div class="col-md-3 about-left">
+						<a href="{{ path('hpt_noticias') }}"><h2>&Uacute;ltimas Noticias</h2></a>
+						<!-- recent-post-grids -->
+
+                            {% for entity in entities %}
+								<div class="recent-post-grids">
+									<div class="r-post-grid">
+										<div class="r-post-grid-left">
+
+                                                <img alt="..." class="img-responsive" src="{{ asset('uploads/images/' ~ entity.rutaFoto) }}" title="post-name"
+                                                     onmouseover="this.style.opacity=0.5"
+                                                     onmouseout="this.style.opacity=1" style="height: 3em; width: 8em">
+
+										</div>
+										<div class="r-post-grid-right">
+											<a  href="{{ path('noticias_show',{ 'id': entity.id }) }}"><h4>{{ entity.titular }}</h4></a>
+											<p style="text-align: justify;">{{ entity.texto }}</p>
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+								</div>
+							{% endfor %}
+
+							<!-- recent-post-grids -->
+
+						<!-- recent-news -->
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+{% endblock %}

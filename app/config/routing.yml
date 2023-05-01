@@ -1,0 +1,15 @@
+backend:
+    resource: "@BackendBundle/Resources/config/routing.yml"
+    prefix:   /backend
+
+hpt_default:
+    resource: "@HPTDefaultBundle/Resources/config/routing.yml"
+    prefix:   /
+
+UsuarioBundle:
+    resource: "@UsuarioBundle/Resources/config/routing.yml"
+    prefix: /usuario
+
+Admin:
+    resource: "@UsuarioBundle/Resources/config/admin/routing.yml"
+    prefix: /admin

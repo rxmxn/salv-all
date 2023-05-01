@@ -1,0 +1,48 @@
+{% extends "BackendBundle::backend.html.twig" %}
+
+    {% block menu_items %}
+        <li><a href="{{ path('backend_usuario_listar') }}">Usuarios</a></li>
+        <li class="active"><a href="{{ path('backend_admin_listar') }}">Admins</a></li>
+        <li><a href="{{ path('backend_sala') }}">Salas</a></li>
+        <li><a href="{{ path('backend_servicio') }}">Servicios</a></li>
+        <li><a href="{{ path('backend_noticias') }}">Noticias</a></li>
+        <li><a href="{{ path('backend_trabajador') }}">Trabajadores</a></li>
+    {% endblock %}
+
+
+    {% block contenido %}
+
+        <div class="form-group" style="margin-bottom: 20px; margin-top: 20px;">
+
+            <table class="table">
+                <tr >
+                    <th>Usuario</th>
+                    <td>{{ usuario }}</td>
+                </tr>
+
+                <tr >
+                    <th>CI</th>
+                    <td>{{ usuario.ci }}</td>
+                </tr>
+
+                <tr >
+                    <th>Nombre de usuario</th>
+                    <td>{{ usuario.username }}</td>
+                </tr>
+
+                <tr >
+                    <th>email</th>
+                    <td>{{ usuario.email }}</td>
+                </tr>
+            </table>
+
+        </div>
+
+            <p class="well"><strong>Seguro que desea borrar?</strong></p>
+
+            <form action="{{ path('backend_admin_borrar', { 'id': usuario.id }) }}" method="post">
+                <input class="btn btn-default" type="submit" value="Borrar"/>
+            </form>
+
+
+    {% endblock %}

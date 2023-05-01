@@ -1,0 +1,93 @@
+{% extends 'HPTDefaultBundle::layout.html.twig' %}
+
+    {% block menu_items %}
+        <li><a href="{{ path('admin_usuario_listar') }}">Usuarios</a></li>
+        <li class="active"><a href="{{ path('sala') }}">Salas</a></li>
+        <li><a href="{{ path('servicio') }}">Servicios</a></li>
+        <li><a href="{{ path('noticias') }}">Noticias</a></li>
+        <li><a href="{{ path('trabajador') }}">Trabajadores</a></li>
+    {% endblock %}
+
+    {% block menu_usuario %}
+        <li>{% render controller('UsuarioBundle:Default:cajaLogin')%}</li>
+    {% endblock %}
+
+
+{% block contenido%}
+
+    <div class="container" style="margin-bottom: 20px;">
+
+        {#<div class="blog-content-right" style="width: auto">#}
+
+            {#<div class="b-search">#}
+                {#<form action="{{ path('sala_nombrePost') }}" method="post">#}
+                  {#<div class="controls">{{ form_widget(form)}}</div>#}
+                  {#<input type="submit"  value="" />#}
+                {#</form>#}
+            {#</div>#}
+        {#</div>#}
+
+        {{ form_start(form) }}
+
+        <div class="blog-content-right" style="padding-top: 15px;">
+            <div class="b-search" style="width: 75%">
+        <div class="control-group" style="width: 15em;">
+        <span>
+        <div class="form-error">{{ form_errors(form) }}</div>
+        <div class="form-error">{{ form_errors(form.nombre) }}</div>
+        <div class="input-medium ">{{ form_widget(form.nombre, { 'attr': {
+            'accesskey' : 'n',
+            'tabindex' : 1,
+            'placeholder' : "Buscar Sala . . ."
+            }}) }}</div>
+        </span>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <input type="submit"  value="" />
+            </div>
+        </div>
+                </div>
+        </div>
+        {{ form_end(form) }}
+
+        <div class="clearfix" style="height: 100%;width: 90%">
+            <div class="col-lg-12">
+
+
+                <h1>Salas</h1>
+
+                <table class="table table-striped">
+                    <tr>
+                        {#<th>Id</th>#}
+                        <th>Nombre</th>
+                        <th>Codigo</th>
+                        <th>Actions</th>
+                    </tr>
+                    {% for entity in entities %}
+                        <tr>
+                            {#<td><a href="{{ path('sala_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>#}
+                            {#<td><a href="{{ path('sala_show',{'id':entity.id}) }}">{{ entity.nombre }}</a> </td>#}
+                            <td>{{ entity.nombre }}</td>
+                            <td>{{ entity.codigo }}</td>
+                            <td>
+                                <a href="{{ path('sala_edit', { 'id': entity.id }) }}" class="btn btn-primary">Editar</a>
+                                <a href="{{ path('sala_delete', { 'id': entity.id }) }}" class="btn btn-danger">Borrar</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+                <a href="{{ path('sala_new') }}" class="btn btn-default">Crear Salas</a>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    {% endblock %}
+
+{% block contactanos_footer %}
+{% endblock %}

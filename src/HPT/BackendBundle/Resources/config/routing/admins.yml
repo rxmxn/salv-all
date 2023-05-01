@@ -1,0 +1,15 @@
+backend_admin_listar:
+    pattern: /listar
+    defaults: { _controller: BackendBundle:Admin:listar }
+
+backend_admin_registro:
+    pattern: /registro
+    defaults: { _controller: BackendBundle:Admin:adminRegistro }
+
+backend_admin_editar:
+    pattern: /editar/{id}
+    defaults: { _controller: BackendBundle:Admin:adminEditar }
+
+backend_admin_borrar:
+    pattern: /admin/borrar/{id}
+    defaults: { _controller: BackendBundle:Admin:adminBorrar }

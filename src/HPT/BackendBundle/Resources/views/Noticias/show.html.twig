@@ -1,0 +1,107 @@
+{% extends "BackendBundle::backend.html.twig" %}
+
+{% block menu_items %}
+    <li><a href="{{ path('backend_usuario_listar') }}">Usuarios</a></li>
+    <li><a href="{{ path('backend_admin_listar') }}">Admins</a></li>
+    <li><a href="{{ path('backend_sala') }}">Salas</a></li>
+    <li><a href="{{ path('backend_servicio') }}">Servicios</a></li>
+    <li class="active"><a href="{{ path('backend_noticias') }}">Noticias</a></li>
+    <li><a href="{{ path('backend_trabajador') }}">Trabajadores</a></li>
+{% endblock %}
+
+
+{% block contenido%}
+
+<div class="blog">
+    <div class="container" style="margin-bottom: 20px;">
+        <div class="blog-content">
+            <div class="wrap">
+                <div class="blog-content-left">
+                    <div class="blog-articals">
+                        <div class="blog-artical">
+                            <div class="blog-artical-basicinfo">
+                                <ul>
+                                    <li class="post-date img-responsive"><p><span> {{ entity.fechaArticulo|date('d') }}</span><label>{{ entity.fechaArticulo|date('Y-m') }}</label></p></li>
+                                    <li class="post-date img-responsive"><p><span>Info</span></p> </li>
+                                    {#<li class="artlick"><span> </span> <i>90</i></li>#}
+
+                                    <div class="clearfix"> </div>
+                                </ul>
+                            </div>
+                            <div class="blog-artical-info">
+                                <div class="blog-artical-info-img">
+
+                                    <img alt="..." class="img-responsive" src="{{ asset('uploads/images/' ~ entity.rutaFoto) }}" title="post-name"
+                                         onmouseover="this.style.opacity=0.5"
+                                         onmouseout="this.style.opacity=1" style="height: 20em;width: 30em">
+
+                                </div>
+                                <div class="blog-artical-info-head">
+                                    <h2>{{ entity.titular }}</h2>
+                                    <ul>
+                                        <li><span> </span>por {{ entity.nombreAutor }}</li>
+                                        <div class="clearfix"> </div>
+                                    </ul>
+                                </div>
+                                <div class="blog-artical-info-text">
+                                    <p style="text-align:justify ">{{ entity.texto }}</p>
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    {#<table class="record_properties">#}
+        {#<tbody>#}
+            {#<tr>#}
+                {#<th>Id</th>#}
+                {#<td>{{ entity.id }}</td>#}
+            {#</tr>#}
+            {#<tr>#}
+                {#<th>Titular</th>#}
+                {#<td>{{ entity.titular }}</td>#}
+            {#</tr>#}
+            {#<tr>#}
+                {#<th>Foto</th>#}
+                {#<td>{{ entity.foto }}</td>#}
+            {#</tr>#}
+            {#<tr>#}
+                {#<th>Texto</th>#}
+                {#<td>{{ entity.texto }}</td>#}
+            {#</tr>#}
+            {#<tr>#}
+                {#<th>Resumen</th>#}
+                {#<td>{{ entity.resumen }}</td>#}
+            {#</tr>#}
+            {#<tr>#}
+                {#<th>Nombreautor</th>#}
+                {#<td>{{ entity.nombreAutor }}</td>#}
+            {#</tr>#}
+            {#<tr>#}
+                {#<th>Fechaarticulo</th>#}
+                {#<td>{{ entity.fechaArticulo|date('Y-m-d H:i:s') }}</td>#}
+            {#</tr>#}
+        {#</tbody>#}
+    {#</table>#}
+
+        {#<ul class="record_actions">#}
+    {#<li>#}
+        {#<a href="{{ path('noticias') }}">#}
+            {#Back to the list#}
+        {#</a>#}
+    {#</li>#}
+    {#<li>#}
+        {#<a href="{{ path('noticias_edit', { 'id': entity.id }) }}">#}
+            {#Edit#}
+        {#</a>#}
+    {#</li>#}
+    {#<li>{{ form(delete_form) }}</li>#}
+{#</ul>#}
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "BackendBundle::backend.html.twig" %}
+
+{% block menu_items %}
+    <li><a href="{{ path('backend_usuario_listar') }}">Usuarios</a></li>
+    <li class="active"><a href="{{ path('backend_admin_listar') }}">Admins</a></li>
+    <li><a href="{{ path('backend_sala') }}">Salas</a></li>
+    <li><a href="{{ path('backend_servicio') }}">Servicios</a></li>
+    <li><a href="{{ path('backend_noticias') }}">Noticias</a></li>
+    <li><a href="{{ path('backend_trabajador') }}">Trabajadores</a></li>
+{% endblock %}
+
+    {% block contenido %}
+
+        <div class="container" style="margin-bottom: 20px;">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Admins</h1>
+
+            <table class="table table-striped">
+                <tr>
+                    <th> </th>
+                    <th>Usuario</th>
+                    <th>CI</th>
+                    {#<th>Fecha Nacimiento</th>#}
+                    <th>Nombre de Usuario</th>
+                    <th>E-mail</th>
+                    <th>Acci&oacute;n</th>
+                </tr>
+
+                {% for usuario in usuarios %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ usuario }}</td>
+                        <td>{{ usuario.ci }}</td>
+                        <td>{{ usuario.username }}</td>
+                        <td>{{ usuario.email }}</td>
+                        <td>
+                            <a href="{{ path('backend_admin_editar', { 'id': usuario.id }) }}" class="btn btn-primary">Editar</a>
+                            <a href="{{ path('backend_admin_borrar', { 'id': usuario.id }) }}" class="btn btn-danger">Borrar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+            <a href="{{ path('backend_admin_registro') }}" class="btn btn-default">Añadir Administrador</a>
+
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}
+
+    {% block contactanos_footer %}
+    {% endblock %}

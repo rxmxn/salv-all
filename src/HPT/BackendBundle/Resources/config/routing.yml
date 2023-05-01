@@ -1,0 +1,33 @@
+backend_homepage:
+    pattern:  /
+    defaults: { _controller: BackendBundle:Usuario:usuarioListar }
+
+# Importar las rutas de la entidad Trabajadores generadas en el bundle BackendBundle
+backend_trabajadores:
+    resource: "@BackendBundle/Resources/config/routing/trabajadores.yml"
+    prefix:   /trabajadores
+
+# Importar las rutas de la entidad Sala generadas en el bundle BackendBundle
+backend_sala:
+    resource: "@BackendBundle/Resources/config/routing/sala.yml"
+    prefix:   /sala
+
+# Importar las rutas de la entidad Servicio generadas en el bundle BackendBundle
+backend_servicio:
+    resource: "@BackendBundle/Resources/config/routing/servicio.yml"
+    prefix:   /servicio
+
+# Importar las rutas de la entidad Noticias generadas en el bundle BackendBundle
+backend_noticias:
+    resource: "@BackendBundle/Resources/config/routing/noticias.yml"
+    prefix:   /noticias
+
+# Importar las rutas de la entidad Usuarios generadas en el bundle BackendBundle
+backend_usuarios:
+    resource: "@BackendBundle/Resources/config/routing/usuarios.yml"
+    prefix:   /usuarios
+
+# Importar las rutas de la entidad Admins generadas en el bundle BackendBundle
+backend_admins:
+    resource: "@BackendBundle/Resources/config/routing/admins.yml"
+    prefix:   /admins

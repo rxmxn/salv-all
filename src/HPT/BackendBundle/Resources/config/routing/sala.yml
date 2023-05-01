@@ -1,0 +1,27 @@
+backend_sala:
+    pattern:  /index
+    defaults: { _controller: BackendBundle:Sala:index }
+
+backend_sala_nombrePost:
+     pattern: /nombre/
+     defaults: {_controller: BackendBundle:Sala:nombrePost}
+
+backend_sala_create:
+    pattern:  /create
+    defaults: { _controller: BackendBundle:Sala:create }
+
+backend_sala_new:
+    pattern:  /new
+    defaults: { _controller: BackendBundle:Sala:new }
+
+backend_sala_edit:
+    pattern:  /edit/{id}
+    defaults: { _controller: BackendBundle:Sala:edit }
+
+backend_sala_update:
+    pattern:  /update/{id}
+    defaults: { _controller: BackendBundle:Sala:update }
+
+backend_sala_delete:
+     pattern:  /delete/{id}
+     defaults: { _controller: BackendBundle:Sala:delete }

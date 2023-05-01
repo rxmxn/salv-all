@@ -1,0 +1,23 @@
+backend_servicio:
+    pattern:  /index
+    defaults: { _controller: BackendBundle:Servicio:index }
+
+backend_servicio_create:
+    pattern:  /create
+    defaults: { _controller: BackendBundle:Servicio:create }
+
+backend_servicio_new:
+    pattern:  /new
+    defaults: { _controller: BackendBundle:Servicio:new }
+
+backend_servicio_edit:
+    pattern:  /edit/{id}
+    defaults: { _controller: BackendBundle:Servicio:edit }
+
+backend_servicio_update:
+    pattern:  /update/{id}
+    defaults: { _controller: BackendBundle:Servicio:update }
+
+backend_servicio_delete:
+    pattern:  /delete/{id}
+    defaults: { _controller: BackendBundle:Servicio:delete }

@@ -1,0 +1,93 @@
+{% extends "::base.html.twig" %}
+
+{% block head %}
+    {#<link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />#}
+
+    <link rel="stylesheet" href="{{ asset('bundles/hptdefault/css/bootstrap.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/hptdefault/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/hptdefault/css/tabs.css') }}" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="{{ asset('bundles/hptdefault/js/jquery.min.js') }}"></script>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script src="{{ asset('bundles/hptdefault/js/bootstrap-tab.js') }}"></script>
+    <script src="{{ asset('bundles/hptdefault/js/bootstrap-dropdown.js') }}"></script>
+
+{% endblock %}
+
+    {% block body %}
+        {% block menu %}
+            <!-- container -->
+            <!-- header -->
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                {#<div class="navbar navbar-inverse">#}
+                <div class="navbar-inner">
+                    {#<div class="header">#}
+                    <div class="container">
+                        {#<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">#}
+                        {#<span class="icon-bar"></span>#}
+                        {#<span class="icon-bar"></span>#}
+                        {#<span class="icon-bar"></span>#}
+                        {#</button>#}
+                        <!-- logo -->
+                        <div class="logo">
+                            <a href="{{ path('hpt_default_homepage') }}">
+                                <H1 style="color: rgb(25,181,254); margin-top: 0; margin-bottom: 0;">Salvador <span style="color: #c0bfbe">Allende</span></H1>
+                                {#<img src="{{ asset('bundles/hptdefault/images/logo_ok.png') }}">#}
+                            </a>
+                        </div>
+
+                        <!-- logo -->
+                        <!-- top-nav -->
+                        <div class="top-nav">
+                            <span class="menu"> </span>
+                            <div>
+                                <ul>
+                                    {% block menu_items %}
+                                    {% endblock %}
+                                    <span class="dropdown">
+                                {% block menu_usuario %}
+                                {% endblock %}
+                            </span>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- top-nav -->
+                        <!-- script-for-nav -->
+                        <script>
+                            $(document).ready(function(){
+                                $("span.menu").click(function(){
+                                    $(".top-nav ul").slideToggle(300);
+                                });
+                            });
+                            $('.dropdown-toggle').dropdown()
+                        </script>
+                        <!-- script-for-nav -->
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+                {#</div>#}
+            </div>
+            <!-- /header -->
+            <!-- /container -->
+        {% endblock %}
+
+        <div style="padding-top: 56px;">
+            {% block contenido %}
+            {% endblock %}
+        </div>
+
+    {% endblock %}
+
+{% block footer %}
+    <!-- team-grids-caption -->
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <p class="copy-right">Diseñado por <a href="#">EnterSourceCode</a></p>
+        </div>
+    </div>
+    <!-- /footer -->
+
+{% endblock %}

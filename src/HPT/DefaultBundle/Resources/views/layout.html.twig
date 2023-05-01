@@ -1,0 +1,163 @@
+{% extends "::base.html.twig" %}
+
+{% block head %}
+    {#<link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />#}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ asset('bundles/hptdefault/css/bootstrap.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/hptdefault/css/bootstrap-responsive.css') }}" />
+    {#<link rel="stylesheet" href="{{ asset('bundles/hptdefault/css/docs.css') }}">#}
+    <link rel="stylesheet" href="{{ asset('bundles/hptdefault/js/google-code-prettify/prettify.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/hptdefault/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/hptdefault/css/tabs.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/hptdefault/css/mystyles.css') }}" />
+
+    <script src="{{ asset('bundles/hptdefault/js/jquery.min.js') }}"></script>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script src="{{ asset('bundles/hptdefault/js/bootstrap-tab.js') }}"></script>
+    <script src="{{ asset('bundles/hptdefault/js/bootstrap-dropdown.js') }}"></script>
+    {#<script src="{{ asset('bundles/hptdefault/js/bootstrap-transition.js') }}"></script>#}
+    {#<script src="{{ asset('bundles/hptdefault/js/bootstrap-alert.js') }}"></script>#}
+    {#<script src="{{ asset('bundles/hptdefault/js/bootstrap-modal.js') }}"></script>#}
+    {#<script src="{{ asset('bundles/hptdefault/js/bootstrap-tooltip.js') }}"></script>#}
+    {#<script src="{{ asset('bundles/hptdefault/js/bootstrap-popover.js') }}"></script>#}
+    <script src="{{ asset('bundles/hptdefault/js/bootstrap-button.js') }}"></script>
+    {#<script src="{{ asset('bundles/hptdefault/js/bootstrap-collapse.js') }}"></script>#}
+    {#<script src="{{ asset('bundles/hptdefault/js/bootstrap-typeahead.js') }}"></script>#}
+    {#<script src="{{ asset('bundles/hptdefault/js/bootstrap-affix.js') }}"></script>#}
+    {#<script src="{{ asset('bundles/hptdefault/js/google-code-prettify/prettify.js') }}"></script>#}
+    {#<script src="{{ asset('bundles/hptdefault/js/holder/holder.js') }}"></script>#}
+    {#<script src="{{ asset('bundles/hptdefault/js/application.js') }}"></script>#}
+{% endblock %}
+
+    {% block body %}
+
+        <!-- Navbar
+    ================================================== -->
+        {#<div class="navbar navbar-inverse navbar-fixed-top">#}
+            {#<div class="navbar-inner">#}
+                {#<div class="container">#}
+                    {#<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">#}
+                        {#<span class="icon-bar"></span>#}
+                        {#<span class="icon-bar"></span>#}
+                        {#<span class="icon-bar"></span>#}
+                    {#</button>#}
+                    {#<a class="brand" href="./index.html">Bootstrap</a>#}
+                    {#<div class="nav-collapse collapse">#}
+                        {#<ul class="nav">#}
+                            {#<li class="active">#}
+                                {#<a href="./index.html">Home</a>#}
+                            {#</li>#}
+                            {#<li class="">#}
+                                {#<a href="./getting-started.html">Get started</a>#}
+                            {#</li>#}
+                            {#<li class="">#}
+                                {#<a href="./scaffolding.html">Scaffolding</a>#}
+                            {#</li>#}
+                            {#<li class="">#}
+                                {#<a href="./base-css.html">Base CSS</a>#}
+                            {#</li>#}
+                            {#<li class="">#}
+                                {#<a href="./components.html">Components</a>#}
+                            {#</li>#}
+                            {#<li class="">#}
+                                {#<a href="./javascript.html">JavaScript</a>#}
+                            {#</li>#}
+                            {#<li class="">#}
+                                {#<a href="./customize.html">Customize</a>#}
+                            {#</li>#}
+                        {#</ul>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+
+        {% block menu %}
+        <!-- container -->
+        <!-- header -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+{#<div class="navbar navbar-inverse">#}
+        <div class="navbar-inner">
+        {#<div class="header">#}
+            <div class="container">
+                {#<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">#}
+                {#<span class="icon-bar"></span>#}
+                {#<span class="icon-bar"></span>#}
+                {#<span class="icon-bar"></span>#}
+                {#</button>#}
+                <!-- logo -->
+                <div class="logo">
+                    <a href="{{ path('hpt_default_homepage') }}">
+                        <H1 style="color: rgb(25,181,254); margin-top: 0; margin-bottom: 0;">Salvador <span style="color: #c0bfbe">Allende</span></H1>
+                        {#<img src="{{ asset('bundles/hptdefault/images/logo_ok.png') }}">#}
+                    </a>
+                </div>
+
+                <!-- logo -->
+                <!-- top-nav -->
+                <div class="top-nav">
+                    <span class="menu"> </span>
+                    <div>
+                        <ul>
+                            {% block menu_items %}
+                            {% endblock %}
+                            <span class="dropdown">
+                                {% block menu_usuario %}
+                                {% endblock %}
+                            </span>
+                        </ul>
+                    </div>
+                </div>
+                <!-- top-nav -->
+                <!-- script-for-nav -->
+                <script>
+                    $(document).ready(function(){
+                        $("span.menu").click(function(){
+                            $(".top-nav ul").slideToggle(300);
+                        });
+                    });
+                    $('.dropdown-toggle').dropdown()
+                </script>
+                <!-- script-for-nav -->
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        {#</div>#}
+</div>
+        <!-- /header -->
+        <!-- /container -->
+        {% endblock %}
+
+        <div style="padding-top: 56px;">
+        {% block contenido %}
+        {% endblock %}
+        </div>
+    {% endblock %}
+
+
+{% block footer %}
+    {% block contactanos_footer %}
+        <!-- team-grids-caption -->
+        <div class="team-grids-caption">
+            <div class="container">
+                <div class="team-grids-caption-left">
+                    <h4>No dude en contactarnos!</h4>
+                    <p>Conozca a nuestros especialistas y disfrute de nuestros servicios.</p>
+                </div>
+                <div class="team-grids-caption-right">
+                    <a class="team-btn" href="{{ path('hpt_contactanos') }}">Cont&aacute;ctanos</a>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    {% endblock %}
+    <!-- team-grids-caption -->
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <p class="copy-right">Diseñado por <a href="#">EnterSourceCode</a></p>
+        </div>
+    </div>
+    <!-- /footer -->
+
+{% endblock %}

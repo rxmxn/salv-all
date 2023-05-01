@@ -1,0 +1,24 @@
+noticias:
+   pattern:  /index/
+   defaults: { _controller: HPTDefaultBundle:Noticias:index }
+
+noticias_create:
+   pattern:  /create/
+   defaults: { _controller: HPTDefaultBundle:Noticias:create }
+
+noticias_new:
+   pattern:  /new/
+   defaults: { _controller: HPTDefaultBundle:Noticias:new }
+
+noticias_edit:
+   pattern:  /edit/{id}/
+   defaults: { _controller: HPTDefaultBundle:Noticias:edit }
+
+noticias_update:
+   pattern:  /update/{id}/
+   defaults: { _controller: HPTDefaultBundle:Noticias:update }
+
+noticias_delete:
+   pattern:  /delete/{id}/
+   defaults: { _controller: HPTDefaultBundle:Noticias:delete }
+

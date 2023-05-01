@@ -1,0 +1,9 @@
+{% extends 'BackendBundle:Admin:admin_registro.html.twig' %}
+
+{% block action %}
+    "{{ path('backend_admin_editar', { 'id': admin.id }) }}"
+{% endblock %}
+
+{% block value_boton %}
+    "Guardar cambios"
+{% endblock %}

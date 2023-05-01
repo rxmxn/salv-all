@@ -1,0 +1,18 @@
+{% extends "BackendBundle::backend.html.twig" %}
+
+{% block menu_items %}
+    <li><a href="{{ path('backend_usuario_listar') }}">Usuarios</a></li>
+    <li><a href="{{ path('backend_admin_listar') }}">Admins</a></li>
+    <li><a href="{{ path('backend_sala') }}">Salas</a></li>
+    <li><a href="{{ path('backend_servicio') }}">Servicios</a></li>
+    <li><a href="{{ path('backend_noticias') }}">Noticias</a></li>
+    <li class="active"><a href="{{ path('backend_trabajador') }}">Trabajadores</a></li>
+{% endblock %}
+
+{% block contenido%}
+    <h1>Trabajador</h1>
+
+
+    <li>{{ form(delete_form) }}</li>
+
+{% endblock %}

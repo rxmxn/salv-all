@@ -1,0 +1,105 @@
+{% extends "BackendBundle::backend.html.twig" %}
+
+{% block menu_items %}
+    <li><a href="{{ path('backend_usuario_listar') }}">Usuarios</a></li>
+    <li><a href="{{ path('backend_admin_listar') }}">Admins</a></li>
+    <li><a href="{{ path('backend_sala') }}">Salas</a></li>
+    <li><a href="{{ path('backend_servicio') }}">Servicios</a></li>
+    <li><a href="{{ path('backend_noticias') }}">Noticias</a></li>
+    <li class="active"><a href="{{ path('backend_trabajador') }}">Trabajadores</a></li>
+{% endblock %}
+
+{% block contenido%}
+    <div class="container" style="margin-bottom: 20px;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-horizontal">
+                    <fieldset>
+                        <legend  style="width: 20em;">Crear Trabajador </legend>
+
+                        {{ form_start(form) }}
+
+
+                        <div class="control-group" style="width: 15em;">
+        <span>
+        <div class="form-error">{{ form_errors(form) }}</div>
+        <div class="form-error">{{ form_errors(form.nombre) }}</div>
+        <label class="control-label">{{ form_label(form.nombre) }}</label>
+        <div class="controls">{{ form_widget(form.nombre, { 'attr': {
+            'accesskey' : 'n',
+            'tabindex' : 1,
+            'placeholder' : "Nombre del Trabajador . . ."
+            }}) }}</div>
+        </span>
+                        </div>
+
+                        <div class="control-group" style="width: 15em;">
+        <span>
+        <div class="form-error">{{ form_errors(form.codigo) }}</div>
+        <label class="control-label">{{ form_label(form.codigo) }}</label>
+        <div class="controls">{{ form_widget(form.codigo, { 'attr': {
+            'accesskey' : 'n',
+            'tabindex' : 1,
+
+            'placeholder' : "Codigo del Trabajdor . . ."}}) }}</div>
+            </span>
+                        </div>
+
+                        <div class="control-group" style="width: 15em;">
+        <span>
+        <div class="form-error">{{ form_errors(form.categoria) }}</div>
+        <label class="control-label">{{ form_label(form.categoria) }}</label>
+        <div class="controls">{{ form_widget(form.categoria, { 'attr': {
+            'accesskey' : 'n',
+            'tabindex' : 1,
+
+            'placeholder' : "Categoria . . ."}}) }}</div>
+            </span>
+                        </div>
+
+                        <div class="control-group" style="width: 15em;">
+        <span>
+        <div class="form-error">{{ form_errors(form.tipoDeCategoria) }}</div>
+        <label class="control-label">{{ form_label(form.tipoDeCategoria) }}</label>
+        <div class="controls">{{ form_widget(form.tipoDeCategoria, { 'attr': {
+            'accesskey' : 'n',
+            'tabindex' : 1,
+
+            'placeholder' : "Tipo de Categoria . . ."}}) }}</div>
+            </span>
+                        </div>
+
+                        <div class="control-group" style="width: 15em;">
+        <span>
+        <div class="form-error">{{ form_errors(form.sala) }}</div>
+        <label class="control-label">{{ form_label(form.sala) }}</label>
+        <div class="controls">{{ form_widget(form.sala, { 'attr': {
+            'accesskey' : 'n',
+            'tabindex' : 1,
+            }}) }}
+        </div>
+            </span>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="controls">
+
+                                {#<div class="btn btn-primary"  >{{ form_widget(form.submit) }}</div>#}
+                                <button class="btn btn-primary" type="submit" >Guardar</button>
+                                <a href="{{ path('backend_trabajador') }}" class="btn btn-default">Trabajadores</a>
+                            </div>
+                        </div>
+
+                        {{ form_end(form) }}
+                    </fieldset>
+                </div>
+
+
+
+                {#<a href="{{ path('sala') }}" class="btn btn-large btn-primary disabled">Salas</a>#}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

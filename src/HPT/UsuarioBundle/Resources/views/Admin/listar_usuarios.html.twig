@@ -1,0 +1,60 @@
+{% extends "HPTDefaultBundle::layout.html.twig" %}
+
+    {% block menu_items %}
+        <li class="active"><a href="{{ path('admin_usuario_listar') }}">Usuarios</a></li>
+        <li><a href="{{ path('sala') }}">Salas</a></li>
+        <li><a href="{{ path('servicio') }}">Servicios</a></li>
+        <li><a href="{{ path('noticias') }}">Noticias</a></li>
+        <li><a href="{{ path('trabajador') }}">Trabajadores</a></li>
+    {% endblock %}
+
+    {% block menu_usuario %}
+        <li>{% render controller('UsuarioBundle:Default:cajaLogin')%}</li>
+    {% endblock %}
+
+    {% block contenido %}
+
+        <div class="container" style="margin-bottom: 20px;">
+
+        <div class="clearfix" style="height: 100%;width: 90%">
+        <div class="col-lg-12">
+
+            <h1>Usuarios</h1>
+
+            <table class="table table-striped">
+                <tr>
+                    <th> </th>
+                    <th>Usuario</th>
+                    <th>CI</th>
+                    <th>Pa&iacute;s</th>
+                    {#<th>Fecha Nacimiento</th>#}
+                    <th>Nombre de Usuario</th>
+                    <th>E-mail</th>
+                    <th>Direcci&oacute;n</th>
+                    <th></th>
+                </tr>
+
+                {% for usuario in usuarios %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ usuario }}</td>
+                        <td>{{ usuario.ci }}</td>
+                        <td>{{ usuario.pais }}</td>
+                        {#<td>{{ usuario.fechaNacimiento }}</td>#}
+                        <td>{{ usuario.username }}</td>
+                        <td>{{ usuario.email }}</td>
+                        <td>{{ usuario.direccion }}</td>
+                        <td>
+                            <a href="{{ path('usuario_borrar', { 'id': usuario.id }) }}" class="btn btn-danger">Borrar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        </div>
+        </div>
+
+    {% endblock %}
+
+{% block contactanos_footer %}
+{% endblock %}

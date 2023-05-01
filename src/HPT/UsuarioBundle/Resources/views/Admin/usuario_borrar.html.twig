@@ -1,0 +1,68 @@
+{% extends "HPTDefaultBundle::layout.html.twig" %}
+
+{% block title 'Salvador Allende' %}
+
+    {% block menu_items %}
+        <li class="active"><a href="{{ path('admin_usuario_listar') }}">Usuarios</a></li>
+        <li><a href="{{ path('sala') }}">Salas</a></li>
+        <li><a href="{{ path('servicio') }}">Servicios</a></li>
+        <li><a href="{{ path('noticias') }}">Noticias</a></li>
+        <li><a href="{{ path('trabajador') }}">Trabajadores</a></li>
+    {% endblock %}
+
+    {% block menu_usuario %}
+        <li>{% render controller('UsuarioBundle:Default:cajaLogin')%}</li>
+    {% endblock %}
+
+    {% block contenido %}
+
+        <div class="form-group" style="margin-bottom: 20px; margin-top: 20px;">
+
+            <table class="table">
+                <tr >
+                    <th>Usuario</th>
+                    <td>{{ usuario }}</td>
+                </tr>
+
+                <tr >
+                    <th>CI</th>
+                    <td>{{ usuario.ci }}</td>
+                </tr>
+
+                <tr >
+                    <th>Pa&iacute;s</th>
+                    <td>{{ usuario.pais }}</td>
+                </tr>
+
+                <tr >
+                    <th>Nombre de usuario</th>
+                    <td>{{ usuario.username }}</td>
+                </tr>
+
+                <tr >
+                    <th>email</th>
+                    <td>{{ usuario.email }}</td>
+                </tr>
+                <tr>
+                    <th>Direccion</th>
+                    <td>{{ usuario.direccion }}</td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="col-md-6">
+            <p class="well"><strong>Seguro que desea borrar?</strong>
+
+            <form action="{{ path('usuario_borrar', { 'id': usuario.id }) }}" method="post">
+                <input class="btn btn-default" type="submit" value="Borrar"/>
+            </form>
+
+            </p>
+        </div>
+
+    {% endblock %}
+
+
+    {% block contactanos_footer %}
+    {% endblock %}

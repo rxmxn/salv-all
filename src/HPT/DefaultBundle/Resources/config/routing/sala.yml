@@ -1,0 +1,31 @@
+sala:
+    pattern:  /index
+    defaults: { _controller: HPTDefaultBundle:Sala:index }
+
+sala_nombrePost:
+     pattern: /nombre/
+     defaults: {_controller: HPTDefaultBundle:Sala:nombrePost}
+
+sala_create:
+    pattern:  /create
+    defaults: { _controller: HPTDefaultBundle:Sala:create }
+
+sala_new:
+    pattern:  /new
+    defaults: { _controller: HPTDefaultBundle:Sala:new }
+
+sala_edit:
+    pattern:  /edit/{id}
+    defaults: { _controller: HPTDefaultBundle:Sala:edit }
+
+sala_show:
+    pattern:  /show/{id}
+    defaults: { _controller: HPTDefaultBundle:Sala:show }
+
+sala_update:
+    pattern:  /update/{id}
+    defaults: { _controller: HPTDefaultBundle:Sala:update }
+
+sala_delete:
+     pattern:  /delete/{id}
+     defaults: { _controller: HPTDefaultBundle:Sala:delete }

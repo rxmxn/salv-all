@@ -1,0 +1,77 @@
+{% extends "HPTDefaultBundle::layout.html.twig" %}
+
+{% block title 'Contáctanos' %}
+
+    {% block menu_items %}
+        <li><a href="{{ path('hpt_default_homepage') }}">Inicio</a></li>
+        <li><a href="{{ path('hpt_quienes_somos') }}">Qui&eacute;nes Somos</a></li>
+        <li><a href="{{ path('hpt_servicios') }}">Servicios</a></li>
+        <li><a href="{{ path('hpt_noticias') }}">Noticias</a></li>
+        <li class="active"><a href="{{ path('hpt_contactanos') }}">Cont&aacute;ctanos</a></li>
+    {% endblock %}
+
+    {% block menu_usuario %}
+        <li>{% render controller('UsuarioBundle:Default:cajaLogin')%}</li>
+    {% endblock %}
+
+    {% block contenido %}
+        <!-- Contact -->
+		<div class="contact">
+            <div class="container">
+                <div class="contact-head text-center">
+                    <h2>Cont&aacute;ctanos</h2>
+                    <p>Si desea contactarnos, por favor, redacte un email con sus dudas y necesidades. Le enviaremos una respuesta lo antes posible.</p>
+                    <p>Adem&aacute;s, facilitamos nuestra ubicaci&oacute;n en el mapa para que nos encuentre sin dificultad.</p>
+                </div>
+                <!----- contact-grids ----->
+                <div class="contact-grids">
+                    <div class="contact-map" style="margin-bottom: 50px; margin-top: 30px;">
+                        {#<img src="{{ asset('bundles/hptdefault/images/mapa  hospital.png') }}">#}
+
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7339.069375300589!2d-82.37988077334641!3d23.114123504815925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88cd79f00caf66e1%3A0x4342ee87575f4f7a!2sHospital+Salvador+Allende!5e0!3m2!1sen!2sin!4v1428436683004" width="600" height="450" frameborder="0" style="border:0"></iframe>
+
+                    </div>
+
+                    <div>
+                        {% for label, flashes in app.session.flashbag.all %}
+                            {% for flash in flashes %}
+                                <div class="alert alert-{{ label }}">
+                                    {{ flash }}
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+
+                    <!----- contact-form ------>
+                    <div class="contact-form">
+                        <form action="{{ path('hpt_contactanos') }}" method="post">
+                            <div class="contact-form-row">
+                                <div>
+                                    <span>Nombre :</span>
+                                    <input type="text" name="nombre" class="text" value="Nombre" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nombre';}">
+                                </div>
+                                <div>
+                                    <span>Email :</span>
+                                    <input type="text" name="email" class="text" value="Dirección de correo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Dirección de correo';}">
+                                </div>
+                                <div>
+                                    <span>Asunto :</span>
+                                    <input type="text" name="asunto" class="text" value="Asunto del mensaje" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Asunto del mensaje';}">
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                            <div class="contact-form-row2">
+                                <span>Mensaje :</span>
+                                <textarea name="mensaje"> </textarea>
+                            </div>
+                            <input type="submit" value="Enviar">
+                        </form>
+                    </div>
+                    <!----- contact-form ------>
+                </div>
+                <!----- contact-grids ----->
+            </div>
+        </div>
+		<!-- /Contact -->
+    {% endblock %}

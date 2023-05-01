@@ -1,0 +1,208 @@
+{# src/HPT/UsuarioBundle/Resources/views/Default/registro.html.twig #}
+{% extends "HPTDefaultBundle::layout.html.twig" %}
+
+{% block title 'Salvador Allende' %}
+
+    {% block menu_items %}
+        <li><a href="{{ path('hpt_default_homepage') }}">Inicio</a></li>
+        <li><a href="{{ path('hpt_quienes_somos') }}">Qui&eacute;nes Somos</a></li>
+        <li><a href="{{ path('hpt_servicios') }}">Servicios</a></li>
+        <li><a href="{{ path('hpt_noticias') }}">Noticias</a></li>
+        <li><a href="{{ path('hpt_contactanos') }}">Cont&aacute;ctanos</a></li>
+    {% endblock %}
+
+    {% block menu_usuario %}
+        <li class="active">{% render controller('UsuarioBundle:Default:cajaLogin')%}</li>
+    {% endblock %}
+
+    {% block contenido %}
+
+        <form action={% block action %}"{{ path('usuario_registro') }}" {% endblock %}
+              method="post" {{ form_enctype(formulario) }} style="margin-bottom: 20px; margin-top: 20px; margin-left: 20px;">
+
+            {#
+                {{ form_widget(formulario) }}
+                Mostrando el formulario que paso el controlador.
+                form_widget muestra todos los campos del formulario ,
+                junto con los posibles mensajes de error y el título de cada campo.
+
+                La funcion form_enctype() de Twig determina si es necesario añadir el atributo
+                enctype="multipart/form-data" porque el formulario incluye campos para subir archivos.
+            #}
+
+            <div class="alert-danger"><h2>{{ form_errors(formulario) }}</h2></div>
+
+            <!----- contact-form ------>
+            <div class="contact-form">
+                <fieldset>
+                    <legend style="width: 15em;">Datos personales</legend>
+
+                    <div class="contact-form-row">
+                        <div>
+                            <span>Nombre :</span>
+                            {{ form_widget(formulario.nombre, { 'attr': {
+                                'accesskey' : 'n',
+                                'tabindex' : 1,
+                                'class' : "text",
+                                'placeholder' : "Nombre"
+                            } }) }}
+                        </div>
+                        <div>
+                            <span>Apellidos :</span>
+                            {{ form_widget(formulario.apellidos, { 'attr': {
+                                'tabindex' : 2,
+                                'class' : "text",
+                                'placeholder' : "Apellidos"
+                            } }) }}
+
+                        </div>
+                        <div>
+                            <span>Carnet de Identidad :</span>
+                            {{ form_widget(formulario.ci, { 'attr': {
+                                'tabindex' : 3,
+                                'class' : "text",
+                                'placeholder' : "CI"
+                            } }) }}
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                    <div class="contact-form-row" style="margin-top: 15px;">
+                        <div>
+                            <span>Fecha de Nacimiento :</span>
+                            {{ form_widget(formulario.fechaNacimiento, { 'attr': {
+                                'tabindex' : 4,
+                                'style' : 'width: 100%'
+                            } }) }}
+                        </div>
+                        <div>
+                            <span>Sexo :</span>
+                            {{ form_widget(formulario.sexo, { 'attr': {
+                                'tabindex' : 5,
+                                'class' : "text",
+                                'style' : 'width: 100%'
+                            } }) }}
+                        </div>
+                        <div>
+                            <span>Pa&iacute;s :</span>
+                            {{ form_widget(formulario.pais, { 'attr': {
+                                'tabindex' : 6,
+                                'class' : "text",
+                                'type' : 'text',
+                                'placeholder' : "País"
+                            } }) }}
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                    <div class="contact-form-row" style="margin-top: 15px;">
+                        <div>
+                            <span>Ciudad :</span>
+                            {{ form_widget(formulario.ciudad, { 'attr': {
+                                'tabindex' : 4,
+                                'class' : "text",
+                                'placeholder' : "Ciudad"
+                            } }) }}
+                        </div>
+                        <div>
+                            <span>Tel&eacute;fono :</span>
+                            {{ form_widget(formulario.telefono, { 'attr': {
+                                'tabindex' : 4,
+                                'class' : "text",
+                                'placeholder' : "Telefono"
+                            } }) }}
+                        </div>
+                        <div>
+                            <span>Fax :</span>
+                            {{ form_widget(formulario.fax, { 'attr': {
+                                'tabindex' : 6,
+                                'class' : "text",
+                                'placeholder' : "Fax"
+                            } }) }}
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                    <div class="contact-form-row" style="margin-top: 15px;">
+                        <div>
+                            <span>Direcci&oacute;n :</span>
+                            {{ form_widget(formulario.direccion, { 'attr': {
+                                'tabindex' : 6,
+                                'class' : "text",
+                                'placeholder' : "Dirección",
+                                'style' : 'width: 100%'
+                            } }) }}
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </fieldset>
+                <fieldset style="margin-top: 20px;">
+                    <legend style="width: 15em;">Datos de acceso</legend>
+
+                    <div class="contact-form-row">
+                        <div>
+                            <span>E-mail :</span>
+                            {{ form_widget(formulario.email, { 'attr': {
+                                'tabindex' : 7,
+                                'class' : "text",
+                                'placeholder' : "email"
+                            } }) }}
+                        </div>
+
+                        <div>
+                            <span>Contraseña :</span>
+                            {{ form_widget(formulario.password.first, { 'attr': {
+                                'tabindex' : 8,
+                                'class' : "text",
+                                'placeholder' : "Contraseña"
+                            } }) }}
+
+                        </div>
+
+                        <div>
+                            <span>Repetir Contraseña :</span>
+                            {{ form_widget(formulario.password.second, { 'attr': {
+                                'tabindex' : 9,
+                                'class' : "text",
+                                'placeholder' : "Repetir Contraseña"
+                            } }) }}
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </fieldset>
+                <fieldset style="margin-top: 20px;">
+                    <legend style="width: 15em;">Estudios realizados previamente</legend>
+
+                    <div class="contact-form-row2">
+                        <div>
+                            <span>Epicrisis :</span>
+                            {{ form_widget(formulario.epicrisis, { 'attr': {
+                                'tabindex' : 6,
+                                'class' : "text",
+                                'placeholder' : "Historial de enfermedad"
+                            } }) }}
+                        </div>
+
+                        <div>
+                            <span>Tratamiento recibido :</span>
+                            {{ form_widget(formulario.tratamiento, { 'attr': {
+                                'tabindex' : 6,
+                                'class' : "text",
+                                'placeholder' : "Tratamiento recibido previamente"
+                            } }) }}
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </fieldset>
+                <input type="submit" value={% block value_boton %}"Registrar Usuario"{% endblock %} >
+                <div class="clearfix"> </div>
+            </div>
+
+            {{ form_rest(formulario) }}
+
+        </form>
+
+    {% endblock %}
